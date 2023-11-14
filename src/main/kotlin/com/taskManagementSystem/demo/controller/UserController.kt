@@ -21,7 +21,7 @@ class UserController(private val userService: UserService) {
 
     @PostMapping
     fun addUser(@RequestBody userDto:UserDto):ResponseEntity<String>{
-        userService.addUser(userDto)
+        userService.saveUser(userDto)
         return ResponseEntity.status(HttpStatus.CREATED).body("User added")
     }
 

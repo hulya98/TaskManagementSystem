@@ -6,6 +6,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.Table
 import org.hibernate.annotations.GenericGenerator
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "tasks")
@@ -14,6 +15,10 @@ class Task(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String,
-    val taskHeader: String,
-    val taskDescription: String
+    val header: String,
+    val description: String,
+
+): BaseEntity(
+    createdDate = LocalDateTime.now(),
+    updatedDate = LocalDateTime.now()
 )

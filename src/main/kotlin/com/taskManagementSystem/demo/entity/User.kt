@@ -7,14 +7,18 @@ import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import org.hibernate.annotations.GenericGenerator
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "users")
-class User(
+class User (
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String,
     val firstName: String,
     val lastName: String
+): BaseEntity(
+    createdDate = LocalDateTime.now(),
+    updatedDate = LocalDateTime.now()
 )

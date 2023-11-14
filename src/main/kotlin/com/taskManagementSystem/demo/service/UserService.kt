@@ -10,7 +10,7 @@ class UserService(
     private val userRepository: UserRepository,
     private val userMapper: UserMapper
 ) {
-    fun addUser(userDto: UserDto) {
+    fun saveUser(userDto: UserDto) {
         val user = userMapper.userDtoToUser(userDto)
         userRepository.save(user);
     }
@@ -19,4 +19,6 @@ class UserService(
         val users = userRepository.findAll()
         return users.map { userMapper.userToUserDto(it) }
     }
+
+
 }
