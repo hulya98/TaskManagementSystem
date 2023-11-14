@@ -9,10 +9,9 @@ class UserTask(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String,
-    @OneToMany
-    @JoinColumn(name = "users_id")
-    val users: List<User>,
-//    @ManyToOne
-//    @JoinColumn(name = "tasks_id")
-//    val tasks: Task
+    @ManyToOne
+    val user: User,
+    @ManyToOne
+    val task: Task
 )
+
