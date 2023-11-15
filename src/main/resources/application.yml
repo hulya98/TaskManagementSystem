@@ -1,0 +1,16 @@
+spring:
+    datasource:
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        password: ${DB_PASSWORD}
+        url: jdbc:sqlserver://${DB_HOST};databaseName=${DB_NAME};encrypt=true;trustServerCertificate=true;
+        username: ${DB_USERNAME}
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+
+error:
+    message: The request could not be processed at this time. Try again later.
