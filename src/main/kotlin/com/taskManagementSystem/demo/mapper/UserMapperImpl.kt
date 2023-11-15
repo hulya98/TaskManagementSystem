@@ -11,29 +11,38 @@ class UserMapperImpl : UserMapper {
         var lastName: String? = null
         var createdDate: LocalDateTime? = null
         var updatedDate: LocalDateTime? = null
+        var isDeleted: Boolean = false
 
         id = user.id;
-        firstName = user.firstName;
-        lastName = user.lastName;
-        createdDate = user.createdDate;
+        firstName = user.firstName
+        lastName = user.lastName
+        createdDate = user.createdDate
         updatedDate = user.updatedDate
+        isDeleted = user.isDeleted
 
-
-        var userDto = UserDto(id, firstName, lastName, createdDate, updatedDate);
-        return userDto;
+        var userDto = UserDto(id, firstName, lastName, isDeleted, createdDate, updatedDate)
+        return userDto
     }
 
     override fun userDtoToUser(userDto: UserDto): User {
         var id: String? = null
         var firstName: String? = null
         var lastName: String? = null
+        var createdDate: LocalDateTime? = null
+        var updatedDate: LocalDateTime? = null
+        var isDeleted: Boolean = false
 
         id = userDto.id;
-        firstName = userDto.firstName;
-        lastName = userDto.lastName;
+        firstName = userDto.firstName
+        lastName = userDto.lastName
+        isDeleted = userDto.isDeleted
+        createdDate = LocalDateTime.now()
+        updatedDate = LocalDateTime.now()
+        var user = User(id, firstName, lastName, isDeleted)
+        user.createdDate = createdDate
+        user.updatedDate = updatedDate
 
-        var user = User(id, firstName, lastName);
 
-        return user;
+        return user
     }
 }

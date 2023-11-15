@@ -17,7 +17,8 @@ class User (
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     val id: String,
     val firstName: String,
-    val lastName: String
+    val lastName: String,
+    var isDeleted: Boolean
 ): BaseEntity(
     createdDate = LocalDateTime.now(),
     updatedDate = LocalDateTime.now()

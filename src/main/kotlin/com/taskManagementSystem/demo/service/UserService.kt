@@ -1,6 +1,7 @@
 package com.taskManagementSystem.demo.service
 
 import com.taskManagementSystem.demo.dto.UserDto
+import com.taskManagementSystem.demo.entity.User
 import com.taskManagementSystem.demo.mapper.UserMapper
 import com.taskManagementSystem.demo.repository.UserRepository
 import org.springframework.stereotype.Service
@@ -20,5 +21,9 @@ class UserService(
         return users.map { userMapper.userToUserDto(it) }
     }
 
-
+    fun deleteUser(id: String) {
+        var getUser = userRepository.getReferenceById(id);
+        getUser.isDeleted = true
+        userRepository.save(getUser)
+    }
 }

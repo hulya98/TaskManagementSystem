@@ -6,6 +6,6 @@ import java.time.LocalDateTime
 
 @MappedSuperclass
 open class BaseEntity(
-    val createdDate: LocalDateTime,
-    val updatedDate: LocalDateTime,
+    var createdDate: LocalDateTime,
+    var updatedDate: LocalDateTime,
 )

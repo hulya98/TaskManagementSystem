@@ -9,6 +9,5 @@ import org.mapstruct.Mapping
 interface UserMapper {
     fun userToUserDto(user: User): UserDto
 
-    @Mapping(target = "id", ignore = true)
     fun userDtoToUser(userDto: UserDto): User
 }
